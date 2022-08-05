@@ -1,0 +1,17 @@
+.ant-list{
+    color: var(--color-4);
+}
+.ant-empty-normal{
+    color: var(--color-4);
+}
+
+.title a{
+    color: var(--color-10);
+}
+.title a:hover{
+    color: var(--color-9);
+}
+.title li:nth-last-child(1) a{
+    color: var(--color-9);
+}
+

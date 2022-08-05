@@ -1,0 +1,39 @@
+.header{
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    background-color: var(--color-6);
+    padding:.4rem;
+    height: 5rem;
+    overflow: hidden; 
+    border-bottom: 1px solid #ccc;
+    transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+}
+
+.headerLogo{
+    font-family: fantasy;
+    font-size: 2.4rem;
+    color: #1e90ff;
+}
+.headerText{
+    box-sizing: border-box;
+    height: 100%;
+    padding-top: 1.7rem;
+    padding-left: 0.9rem;
+    font-size: 1.4rem;
+    line-height: 1rem;
+    color: #111;
+}
+.left{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+.right{
+    /* color: ; */
+    background-color:var(--color-6) ;
+}
+
+.right .ant-menu-item{
+    font-size: 1.4rem;
+}

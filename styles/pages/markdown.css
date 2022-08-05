@@ -1,0 +1,15 @@
+/* 解析markdown的样式 */
+h1{
+    color: var(--color-9);
+  }
+
+  /* markdown右边的样式 */
+  .title-anchor{
+      margin: 0.4rem 0 !important;
+      color: var(--color-4) !important;
+      border-bottom: 1px dashed #ccc;
+  }
+  .active{
+    background-color: var(--color-11) !important;
+    color: #1890ff !important;
+  }

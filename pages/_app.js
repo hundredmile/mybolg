@@ -1,7 +1,8 @@
-import '../styles/globals.css'
+import App from 'next/app'
+import 'antd/dist/antd.css'
+import '../styles/pages/common.css'
+import '../styles/components/darklight.css'
+import '../styles/pages/markdown.css'
+// import '../styles/pages/index.css'  // 首页内容的样式
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
-
-export default MyApp
+export default App

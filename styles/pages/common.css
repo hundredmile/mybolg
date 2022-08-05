@@ -1,0 +1,131 @@
+@media screen and (max-width: 500px)  {
+  html{
+    font-size: 10px;
+  }
+}
+@media screen and (min-width: 900px)  {
+  html{
+    font-size: 12px;
+  }
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .bolg{
+    font-family: 'Montserrat';
+    color: var(--color-4);
+  }
+  .bolg[data-theme="light"]{
+    --color-1:#ddd;
+    --color-2: #eee; 
+    --color-3:  #f5f5f5;
+    --color-4: #353535;
+   
+    /* 头部右边背景色 */
+    --color-6:#fff;  
+    /* 头部右边背景色 */
+    --color-7:#fff;  
+    /* 首页list的样式 */
+    --color-8: #353535;
+    /* 首页list 的title的样式 */
+    --color-9: #353535;
+    /* 首页list 的 icon */
+    /* --color-9: #AAA; */
+    /* 面包屑字体颜色 */
+    --color-10: rgba(0, 0, 0, 0.45);
+    /* markdown nav item bgc */
+    --color-11: #f8f8f8;
+   
+  }
+  .bolg[data-theme="dark"]{
+    --color-1:#1E1F26;
+    --color-2: #292c33; 
+    --color-3: rgb(39, 40, 42);
+    --color-4: rgb(186, 186, 202);
+    
+    /* 头部右边背景色 */
+    --color-6:rgb(186, 186, 202);
+    /* 头部右边背景色 */
+    --color-7:rgb(64, 64, 70);
+    /* 首页list 的context的样式 */
+    --color-8: rgb(214, 203, 203);
+     /* 首页list 的title的样式 */
+     --color-9: #fff;
+    /* 首页list 的 icon */
+    /* --color-9: #AAA; */
+    /* 面包屑字体颜色 */
+    --color-10: rgba(232, 232, 232, 0.5);
+    /* markdown nav item bgc */
+    --color-11: #c5c5c5;
+   
+  }
+  
+  .headerfalse{
+    height: 5rem;
+  }
+  .content{
+    background-color: var(--color-1);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
+    /* align-items: center; */
+  }
+  main{
+    width: 100%;
+    margin-top: .5rem;
+  }
+  .common-left{
+    margin-right: 0.8rem;
+    margin-left: 0.8rem;
+    background-color:var(--color-7);
+    padding: .8rem;
+    border-radius: .6rem;
+    border-bottom: 1px solid  var(--color-2);
+  }
+  .common-right{
+    height: 100%;
+    width: 100%;
+  }
+  
+ /* List组件 */
+ .ant-list-header{
+  font-size: 1.8rem;
+  color: var(--color-8);
+}
+.list-title{
+  padding: 0.8rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-9);
+}
+.list-icon{
+  padding-bottom: 0.5rem ;
+  /* padding-left: 0.8rem; */
+}
+.ant-list-item{
+  padding: 0 1rem;
+  cursor: pointer;
+  color: var(--color-8);
+}
+.ant-list-item:hover .list-title{
+  color: #1e90ff;
+}
+.ant-space{
+  color: #AAA;
+  margin-right: 1.5rem;
+}
+/* List组件 */
+ 
+
+
+
+
+
+
+  

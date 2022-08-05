@@ -1,0 +1,16 @@
+.footer{
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+    background-color: var(--color-6);
+    color: var(--color-9);
+}
+.footer div:nth-child(1){
+    font-size: 1.8rem;
+}
+.footer div:nth-child(2){
+    font-size: 1.6rem;
+}

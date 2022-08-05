@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import React,{useState} from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import Author from '../components/Author'
-import { Row,Col,List,Space } from 'antd'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import Author from '../../components/Author'
+import listcss from './list.module.css'
+import { Row,Col,List,Space,Breadcrumb  } from 'antd'
 import { FieldTimeOutlined,FileWordOutlined,EyeOutlined } from '@ant-design/icons';
 
-export default function Home() {
+export default function list() {
   const [datatheme,setdatatheme] = useState(['light'])
   function changedatatheme(){
     setdatatheme(datatheme=='light'?'dark':'light')
@@ -24,13 +25,20 @@ export default function Home() {
       <Head>
         <title>Hundredmile</title>
       </Head>
+      
       <div className='content'>
-        <div className='headerfalse'></div>
-        <Header changedatatheme={changedatatheme}/>
+      <Header changedatatheme={changedatatheme}/>
+      <div className='headerfalse'></div>
         
         <main>
           <Row className='common-main' type="flex" justify='center'>
             <Col className='common-left' xs={24} sm={24} md={16} lg={18} xl={14}>
+              <div >
+                <Breadcrumb className={listcss.title}>
+                  <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
+                  <Breadcrumb.Item><a href="/">视频</a></Breadcrumb.Item>
+                </Breadcrumb>
+              </div>
             <List
                 header={
                     <div>最新日志</div>
