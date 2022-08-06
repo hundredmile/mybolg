@@ -1,58 +1,43 @@
 import Head from 'next/head'
 import React,{useState} from 'react'
+import axios from 'axios'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Author from '../../components/Author'
-import { Row,Col,Breadcrumb,Space} from 'antd'
+import { Row,Col,Breadcrumb,Space,Affix} from 'antd'
 import { FieldTimeOutlined,FileWordOutlined,EyeOutlined } from '@ant-design/icons';
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'  // 删除线
 import MarkNav from 'markdown-navbar'
+import marked from 'marked'  // 解析markdown
+import hljs from 'highlight.js'  //代码高亮
+import 'highlight.js/styles/monokai-sublime.css'
 import 'markdown-navbar/dist/navbar.css'
+import servicePath from '../../config/apiUrl'
 import detailcss from './detail.module.css'
 
 
-export default function Detail() {
+function Detail(props) {
   const [datatheme,setdatatheme] = useState(['light'])
   function changedatatheme(){
     setdatatheme(datatheme=='light'?'dark':'light')
   }
+
+  const renderer = new marked.Renderer()
+  marked.setOptions({
+    renderer:renderer,
+    gfm:true,
+    pedantic:false,
+    sanitize:false, // 忽略html标签
+    tables:true,
+    breaks:false,
+    smartLists:true,
+    highlight:function(code) {
+      return hljs.highlightAuto(code).value
+    }
+  })
+
+  let html = marked(props.article_content)
   
-  let markdown1=
-  '# p01:来个Hello World \n' +
-  '[ **M** ] arkdown + E [ **ditor** ] = **Mditor**  \n' +
-  '> Mditor 是一个简洁、易于集成、方便扩展、期望舒服的编写 markdown 的编辑器，仅此而已... \n\n' +
-  '**这是加粗的文字**\n\n' +
-  '*这是倾斜的文字*`\n\n' +
-  '***这是斜体加粗的文字***\n\n' +
-  '~~这是加删除线的文字~~ \n\n'+
-  '\`console.log(111)\` \n\n'+
-  '# p02:来个Hello World 初始Vue3.0\n' +
-  '> aaaaaaaaa\n' +
-  '>> bbbbbbbbb\n' +
-  '>>> cccccccccc\n'+
-  '***\n\n\n' +
-  '# p03:Vue3.0基础知识讲解\n' +
-  '> aaaaaaaaa\n' +
-  '>> bbbbbbbbb\n' +
-  '>>> cccccccccc\n\n'+
-  '# p04:Vue3.0基础知识讲解\n' +
-  '> aaaaaaaaa\n' +
-  '>> bbbbbbbbb\n' +
-  '>>> cccccccccc\n\n'+
-  '# p05:Vue3.0基础知识讲解\n' +
-  '> aaaaaaaaa\n' +
-  '>> bbbbbbbbb\n' +
-  '>>> cccccccccc\n\n'+
-  '# p06:Vue3.0基础知识讲解\n' +
-  '> aaaaaaaaa\n' +
-  '>> bbbbbbbbb\n' +
-  '>>> cccccccccc\n\n'+
-  '# p07:Vue3.0基础知识讲解\n' +
-  '> aaaaaaaaa\n' +
-  '>> bbbbbbbbb\n' +
-  '>>> cccccccccc\n\n'+
-  '``` var a=11; ```'
+  
 
   return (
     <div className='bolg' data-theme={datatheme}>
@@ -80,24 +65,25 @@ export default function Detail() {
                       <Space><FileWordOutlined />文章</Space>
                       <Space><EyeOutlined />300</Space>
                   </div>
-                  <div className={detailcss.text}> 
-                    <ReactMarkdown
-                      children={markdown1}
-                      remarkPlugins={[remarkGfm]}
-                    />
+                  <div className={detailcss.text}
+                  dangerouslySetInnerHTML={{__html:html}}> 
                   </div>
               </div>
             </Col>
             <Col className='common-right' xs={0} sm={0} md={7} lg={5} xl={4}>
               <Author/>
-              <div className={detailcss.marknav}>
-                <div className={detailcss.navtitle}>文章目录</div>
-                <MarkNav
-                  className={detailcss.navitem}
-                  source={markdown1}
-                  ordered={false}
-                />
-              </div>
+              <div className={detailcss.blankcontent}></div>
+
+              <Affix offsetTop={71}>
+                <div className={detailcss.marknav}>
+                  <div className={detailcss.navtitle}>文章目录</div>
+                  <MarkNav
+                    className={detailcss.navitem}
+                    source={html}
+                    ordered={false}
+                  />
+                </div>
+              </Affix>
             </Col>
           </Row>
         </main>
@@ -107,3 +93,26 @@ export default function Detail() {
     </div>
   )
 }
+
+Detail.getInitialProps = async(context) =>{
+  console.log(context.query.id);
+  let id = context.query.id
+
+  const promise = new Promise((resolve,reject)=>{
+    axios(servicePath.getArticleById+id).then(
+        (res)=>{
+          console.log(res.data);
+          resolve(res.data.data[0])
+        },
+        (error)=>{
+          reject(error)
+        }
+      )
+     
+    })
+    return await promise
+  }
+
+
+
+export default Detail

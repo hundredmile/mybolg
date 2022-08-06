@@ -2,6 +2,12 @@
   html{
     font-size: 10px;
   }
+  .theme-switcher{
+    z-index: 999;
+    position: absolute;
+    right: 10px !important;
+    top: 10px !important;
+  }
 }
 @media screen and (min-width: 900px)  {
   html{
@@ -113,7 +119,13 @@
   cursor: pointer;
   color: var(--color-8);
 }
-.ant-list-item:hover .list-title{
+.list-title a{
+  color: var(--color-9);
+}
+.list-context{
+  padding-bottom: 1rem;
+}
+.ant-list-item:hover .list-title a{
   color: #1e90ff;
 }
 .ant-space{

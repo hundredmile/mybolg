@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Author from '../../components/Author'
 import listcss from './list.module.css'
-import { Row,Col,List,Space,Breadcrumb  } from 'antd'
+import { Row,Col,List,Space,Breadcrumb,Button  } from 'antd'
 import { FieldTimeOutlined,FileWordOutlined,EyeOutlined } from '@ant-design/icons';
 
 export default function list() {
@@ -36,18 +36,28 @@ export default function list() {
               <div >
                 <Breadcrumb className={listcss.title}>
                   <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
-                  <Breadcrumb.Item><a href="/">视频</a></Breadcrumb.Item>
+                  <Breadcrumb.Item><a href="/">我的记录</a></Breadcrumb.Item>
                 </Breadcrumb>
               </div>
             <List
                 header={
-                    <div>最新日志</div>
+                  <>
+                    <div>我的记录</div>
+                    <Button>全部记录</Button>
+                    <Button>js基础</Button>
+                    <Button>关于vue</Button>
+                    <Button>关于react</Button>
+                  </>
                 }
                 itemLayout="vertical"
                 dataSource={mylist}
                 renderItem={item=>(
                   <List.Item>
-                    <div className='list-title'>{item.title}</div>
+                    <div className='list-title'>
+                      {/* <Link href={{pathname:'/detail',query:{id:item.id}}}> */}
+                        <a> 文章标题</a>
+                      {/* </Link> */}
+                    </div>
                     <div className='list-icon'>
                       <Space><FieldTimeOutlined />2022-02-05</Space>
                       <Space><FileWordOutlined />文章</Space>

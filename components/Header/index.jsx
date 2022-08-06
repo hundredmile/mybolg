@@ -2,21 +2,22 @@
  import headers from './header.module.css'
  import Darklight from '../darklight';
  import {Row,Col,Menu} from 'antd'
+ import Router from 'next/router'
  import { HomeOutlined, VideoCameraOutlined, SmileOutlined } from '@ant-design/icons';
 
  const items = [
   {
     label: '首页',
-    key: 'mail',
+    key: '/',
     icon: <HomeOutlined />,
   },
   {
-    label: '视频',
-    key: 'video',
+    label: '我的记录',
+    key: 'list',
     icon: <VideoCameraOutlined />,
   },
   {
-    label: '生活',
+    label: '快乐生活',
     key: 'smile',
     icon: <SmileOutlined />,
   },
@@ -26,8 +27,9 @@
   function changetheme(){
     props.changedatatheme()
   }
-  function onClick(){
-    console.log(11);
+  function onClick(e){
+    console.log(e);
+    Router.push(e.key)
   }
    return (
      <div className={headers.header}>

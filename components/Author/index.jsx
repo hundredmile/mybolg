@@ -5,7 +5,6 @@ import { GithubOutlined,WechatOutlined } from '@ant-design/icons';
 
 export default function author() {
   return (
-    <div className={authcss.authorbox} >
     <div className={authcss.author} >
         <div><Avatar size={100} className={authcss.avatorbox} src="https://img1.baidu.com/it/u=1966616150,2146512490&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1659805200&t=c2a68b7d2fd7bbf4a21c9ab1bbc03ec6"/></div>
         <div className={authcss.introduction}>
@@ -23,7 +22,6 @@ export default function author() {
             </div>
             
         </div>
-    </div>
     </div>
   )
 }

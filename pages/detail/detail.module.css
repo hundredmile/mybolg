@@ -24,6 +24,10 @@
     padding-left: 0;
 }
 
+.blankcontent{
+    height: 12px;
+}
+
 /* markdown导航区域 */
 .navtitle{
     width: 100%;
@@ -31,9 +35,6 @@
     font-size: 1.5rem;
 }
 .marknav{
-    margin-top: 1rem;
-    width: 16.5%;
-    position: fixed;
     padding: 1rem 0.6rem 1.5rem 0.6rem;
     display: flex;
     flex-direction: column;
