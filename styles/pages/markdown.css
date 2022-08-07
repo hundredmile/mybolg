@@ -1,7 +1,45 @@
 /* 解析markdown的样式 */
-h1{
+  h1,h2,h3,h4,h5,h6,p,li,ol{
     color: var(--color-9);
   }
+  h4,h5,h6,p,li,ol{
+    color: var(--color-4);
+  }
+  #detailtext {
+    /* padding-left: 1.6rem; */
+  }
+  #detailtext h1{
+    font-size: 2.4rem;
+  }
+  #detailtext h2{
+    font-size: 2.2rem;
+  }
+  #detailtext h3{
+    font-size: 2rem;
+  }
+  #detailtext h4{
+    font-size: 1.8rem;
+  }
+  #detailtext h5{
+    font-size: 1.6rem;
+  }
+  #detailtext h6{
+    font-size: 1.4rem;
+  }
+  #detailtext p{
+    font-size:  1.6rem;
+  }
+  #detailtext ol,ul{
+    padding-left: 3rem;
+  }
+  #detailtext li{
+    font-size: 1.6rem;
+  }
+  #detailtext li::marker{
+    margin-left: 2rem;
+    padding-left: 2rem;
+  }
+  
 
   /* markdown右边的样式 */
   .title-anchor{
@@ -13,3 +51,91 @@ h1{
     background-color: var(--color-11) !important;
     color: #1890ff !important;
   }
+
+  /* detail里面的css */
+  .bread-div{
+    padding: .5rem;
+    border-bottom:1px solid #eee;
+    background-color: #e1f0ff;
+}
+.detailed-title{
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+pre{
+    display: block;
+    background-color:#f3f3f3;
+     padding: .5rem !important;
+     overflow-y: auto;
+     font-weight: 300;
+     font-family: Menlo, monospace;
+     border-radius: .6rem;
+}
+pre{
+    background-color: #283646 !important;
+}
+pre >code{
+    border:0px !important;
+    background-color: #283646 !important;
+    color:#FFF;
+}
+code {
+    display: inline-block ;
+    background-color:#f3f3f3;
+    border:1px solid #fdb9cc;
+    border-radius:3px;
+    font-size: 1.6rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    color:#4f4f4f;
+    margin: 0px 3px;
+
+}
+
+.title-anchor{
+    color:#888 !important;
+    padding:4px !important;
+    margin: 0rem !important;
+    height: auto !important;
+    line-height: 1.2rem !important;
+    font-size: .7rem !important;
+    border-bottom: 1px dashed #eee;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.active{
+    color:rgb(30, 144, 255) !important;
+}
+.nav-title{
+    text-align: center;
+    color: #888;
+    border-bottom: 1px solid rgb(30, 144, 255);
+
+}
+.article-menu{
+    font-size:12px;
+}
+iframe{
+    height: 34rem;
+}
+.detailed-content  img{
+    width: 100%;
+    border:1px solid #f3f3f3;
+}
+.title-level3{
+    display: none !important;
+}
+
+.ant-anchor-wrapper{
+    padding: 5px !important;
+}
+
+/* 右边的锚点链接 */
+.ant-anchor-link a{
+  color: var(--color-9) ;
+}
+/* 右边的锚点链接 */

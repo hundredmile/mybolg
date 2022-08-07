@@ -8,6 +8,9 @@ import axios from 'axios'
 import { Row,Col,List,Space } from 'antd'
 import { FieldTimeOutlined,FileWordOutlined,EyeOutlined } from '@ant-design/icons';
 import servicePath from '../config/apiUrl'
+import marked from 'marked'  // 解析markdown
+import hljs from 'highlight.js'  //代码高亮
+import 'highlight.js/styles/monokai-sublime.css'
 
  function Home(list) {
   const [datatheme,setdatatheme] = useState(['light'])
@@ -15,6 +18,20 @@ import servicePath from '../config/apiUrl'
     setdatatheme(datatheme=='light'?'dark':'light')
   }
   const [mylist,setMylist] = useState(list.data)
+
+  const renderer = new marked.Renderer()
+  marked.setOptions({
+    renderer:renderer,
+    gfm:true,        // github样式渲染
+    pedantic:false,  // 容错处理
+    sanitize:false, // 忽略html标签
+    tables:true,
+    breaks:false,    // git的换行符
+    smartLists:true,  //自动渲染列表
+    highlight:function(code) {
+      return hljs.highlightAuto(code).value
+    }
+  })
 
   return (
     <div className='bolg' data-theme={datatheme}>
@@ -46,7 +63,9 @@ import servicePath from '../config/apiUrl'
                       <Space><FileWordOutlined />{item.typeName}</Space>
                       <Space><EyeOutlined />{item.view_count}</Space>
                     </div>
-                    <div className='list-context'>{item.introduce}</div>
+                    <div className='list-context'
+                      dangerouslySetInnerHTML={{__html:marked(item.introduce)}}
+                    ></div>
                   </List.Item>
                 )}
               />
@@ -68,7 +87,6 @@ Home.getInitialProps = async ()=>{
   const promise = new Promise((resolve,reject)=>{
     axios(servicePath.getArticleList).then(
       (res)=>{
-        console.log(res.data);
         resolve(res.data)
       },
       (error)=>{

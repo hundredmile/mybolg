@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     margin-top: 2rem;
-    background-color: var(--color-6);
+    /* background-color: var(--color-6); */
     color: var(--color-9);
 }
 .footer div:nth-child(1){

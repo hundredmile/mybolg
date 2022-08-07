@@ -99,40 +99,7 @@
     width: 100%;
   }
   
- /* List组件 */
- .ant-list-header{
-  font-size: 1.8rem;
-  color: var(--color-8);
-}
-.list-title{
-  padding: 0.8rem 0;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--color-9);
-}
-.list-icon{
-  padding-bottom: 0.5rem ;
-  /* padding-left: 0.8rem; */
-}
-.ant-list-item{
-  padding: 0 1rem;
-  cursor: pointer;
-  color: var(--color-8);
-}
-.list-title a{
-  color: var(--color-9);
-}
-.list-context{
-  padding-bottom: 1rem;
-}
-.ant-list-item:hover .list-title a{
-  color: #1e90ff;
-}
-.ant-space{
-  color: #AAA;
-  margin-right: 1.5rem;
-}
-/* List组件 */
+
  
 
 

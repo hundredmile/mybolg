@@ -36,7 +36,7 @@
         <Row type='flex' justify='center'> 
           <Col xs={24} sm={24} md={10} lg={15} xl={12} className={headers.left}>
             <span className={headers.headerLogo}>Hundredmile</span>
-            <span className={headers.headerText}>前端开发!</span>
+            <span className={headers.headerText}>这是占位符合!</span>
           </Col>
           <Col xs={0} sm={0} md={14} lg={8} xl={6} className={headers.right}>
             <Menu onClick={onClick}  mode="horizontal" items={items} className={headers.right}/>
