@@ -1,34 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- ##### 说明：
 
-## Getting Started
+- 博客前台使用的是next.js，它是一个轻量级的React服务端渲染框架，其官网地址:[next](https://nextjs.frontendx.cn/)
 
-First, run the development server:
+- next.js是一个轻量级的React服务端渲染框架，在pages文件中的文件自成路由，无需额外配置
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- 渲染文章主要使用的marked解析markdown，然后使用highlight.js去实现代码块的高亮效果
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 本说明文档主要记录本次博客搭建的过程和遇到的难点
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### 文件结构
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+> **components**    一些公共组件
+>
+> > Author    主体内容右边的作者介绍
+> >
+> > Footer     博客底部
+> >
+> > Header    博客头部组件
+> >
+> > darklight.js    黑夜模式切换组件
+> >
+> > tocify.js          生成文章中的锚点连接文件
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+> **config**             在这个文件中配置请求的url
+>
+> > apiUrl.js      接口请求路径的统一管理，方便维护
 
-## Learn More
+> **pages**              页面级组件
+>
+> > detail            博客的详细内容
+> >
+> > list                分类的所有博客，如vue相关的所有博客
+> >
+> > _app.js         入口文件
+> >
+> > index.js         博客首页 
 
-To learn more about Next.js, take a look at the following resources:
+> **public**              公共文件夹，里面存放公共静态资源    
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> **styles**               组件样式和页面的样式
+>
+> > components      组件的样式
+> >
+> > pages                页面级组件的样式
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 1.使用useEffect解决useState 的异步问题
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
